@@ -1,4 +1,4 @@
-package striverSdeSheet.twoPointer;
+package src.striverSdeSheet.twoPointer;
 
 // TODO count number of sub arrays which contain k odd numbers
 public class CountNiceSubarrays {

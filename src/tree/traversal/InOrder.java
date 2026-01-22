@@ -1,6 +1,6 @@
-package tree.traversal;
+package src.tree.traversal;
 
-import tree.Node;
+import src.tree.Node;
 
 public class InOrder{
 	

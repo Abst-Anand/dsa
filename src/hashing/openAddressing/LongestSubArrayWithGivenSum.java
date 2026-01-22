@@ -1,4 +1,4 @@
-package hashing.openAddressing;
+package src.hashing.openAddressing;
 
 import java.util.ArrayList;
 import java.util.HashMap;

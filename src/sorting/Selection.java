@@ -1,4 +1,4 @@
-package sorting;
+package src.sorting;
 
 public class Selection {
 	// less memory writes 

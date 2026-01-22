@@ -1,5 +1,5 @@
 //695
-package graph;
+package src.graph;
 
 public class LargestIsland {
 	

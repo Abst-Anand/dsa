@@ -1,4 +1,4 @@
-package hashing.openAddressing;
+package src.hashing.openAddressing;
 import java.util.HashSet;
 import java.util.Iterator;
 

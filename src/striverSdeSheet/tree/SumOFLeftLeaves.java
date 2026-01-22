@@ -1,4 +1,4 @@
-package striverSdeSheet.tree;
+package src.striverSdeSheet.tree;
 
 import java.util.LinkedList;
 import java.util.Queue;

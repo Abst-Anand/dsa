@@ -1,4 +1,4 @@
-package etc;
+package src.etc;
 import java.util.ArrayList;
 
 public class StocksBuyAndSell {

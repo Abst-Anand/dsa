@@ -1,4 +1,4 @@
-package striverSdeSheet;
+package src.striverSdeSheet;
 
 import java.util.HashMap;
 import java.util.HashSet;

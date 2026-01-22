@@ -1,4 +1,4 @@
-package hashing.openAddressing;
+package src.hashing.openAddressing;
 
 
 class HashTable{

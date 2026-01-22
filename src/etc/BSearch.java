@@ -1,4 +1,4 @@
-package etc;
+package src.etc;
 
 public class BSearch {
 	public static int bs(int[] arr, int num) {

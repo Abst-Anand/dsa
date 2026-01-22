@@ -1,4 +1,4 @@
-package striverSdeSheet.tree;
+package src.striverSdeSheet.tree;
 
 public class MorrisInOrderTraversal {
 

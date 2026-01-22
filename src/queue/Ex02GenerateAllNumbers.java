@@ -1,4 +1,4 @@
-package queue;
+package src.queue;
 
 import java.util.LinkedList;
 import java.util.Queue;

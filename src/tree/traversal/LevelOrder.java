@@ -1,10 +1,10 @@
-package tree.traversal;
+package src.tree.traversal;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import tree.Node;
+import src.tree.Node;
 
 public class LevelOrder {
 	

@@ -1,4 +1,4 @@
-package linkedList;
+package src.linkedList;
 
 public class BinaryTreeNode {
 	int val;

@@ -1,4 +1,4 @@
-package etc;
+package src.etc;
 
 public class SquareRoot {
 	static double getSquareRoot(double num) {

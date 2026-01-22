@@ -1,4 +1,4 @@
-package linkedList;
+package src.linkedList;
 import java.util.Scanner;
 
 public class CreateAndAdd {

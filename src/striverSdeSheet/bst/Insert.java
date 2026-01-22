@@ -1,4 +1,4 @@
-package striverSdeSheet.bst;
+package src.striverSdeSheet.bst;
 
 public class Insert {
 

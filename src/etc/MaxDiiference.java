@@ -1,4 +1,4 @@
-package etc;
+package src.etc;
 
 public class MaxDiiference {
 	static int maxDiffG(int[] arr) {

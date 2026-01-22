@@ -1,4 +1,4 @@
-package striverSdeSheet.heap;
+package src.striverSdeSheet.heap;
 
 import java.util.ArrayList;
 import java.util.Collections;

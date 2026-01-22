@@ -1,4 +1,4 @@
-package striverSdeSheet.graph;
+package src.striverSdeSheet.graph;
 
 import java.util.ArrayList;
 

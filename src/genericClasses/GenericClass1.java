@@ -1,4 +1,4 @@
-package genericClasses;
+package src.genericClasses;
 
 public class GenericClass1<T> {
 	private T data;

@@ -1,4 +1,4 @@
-package striverSdeSheet.tree;
+package src.striverSdeSheet.tree;
 
 import java.util.ArrayList;
 import java.util.Stack;

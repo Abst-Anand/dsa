@@ -1,4 +1,4 @@
-package striverSdeSheet.twoPointer;
+package src.striverSdeSheet.twoPointer;
 
 public class CountSubarraySumEqualsK {
 

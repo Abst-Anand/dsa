@@ -1,4 +1,4 @@
-package striverSdeSheet;
+package src.striverSdeSheet;
 
 public class SearchInSorted2DMatrix {
 	

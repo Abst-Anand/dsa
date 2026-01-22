@@ -1,4 +1,4 @@
-package test;
+package src.test;
 
 class Node{
 	int data;

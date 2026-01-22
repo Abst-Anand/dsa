@@ -1,5 +1,5 @@
 //743
-package graph;
+package src.graph;
 
 import java.io.IOException;
 import java.util.HashMap;

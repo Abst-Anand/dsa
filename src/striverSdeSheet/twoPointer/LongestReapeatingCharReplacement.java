@@ -1,4 +1,4 @@
-package striverSdeSheet.twoPointer;
+package src.striverSdeSheet.twoPointer;
 
 // TODO given a string, find the longest substring with same letter and you are allowed to change any k letters.
 

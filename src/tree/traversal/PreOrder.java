@@ -1,8 +1,8 @@
-package tree.traversal;
+package src.tree.traversal;
 
 import java.util.Stack;
 
-import tree.Node;
+import src.tree.Node;
 
 public class PreOrder {
 	
