@@ -1,0 +1,36 @@
+LCS NAIVE
+	s1:20 , s2:22
+	Operations: 2^20=1048576.0
+	Execution time in milliseconds: 72073 ms OR 72 sec
+	9
+
++++++++++++++++++++++++++
+LCS WITH MEMOIZATION(DP)
+	s1:17 , s2:18
+	Operations: 2^17=131072.0
+	Execution time in milliseconds: 1 ms OR 0 sec
+	8
+	
+	s1:23 , s2:24
+	Operations: 2^23=8388608.0
+	Execution time in milliseconds: 0 ms OR 0 sec
+	16
+	
+	s1:46 , s2:47
+	Operations: 2^46=7.0368744177664E13
+	Execution time in milliseconds: 1 ms OR 0 sec
+	35
+	
+	s1:105 , s2:107
+	Operations: 2^105=4.056481920730334E31
+	Execution time in milliseconds: 2 ms OR 0 sec
+	80
+	
+	s1:210 , s2:214
+	Operations for naive 2^210= 1.645504557321206E63
+	Operations for memoized= 44940
+	Execution time in milliseconds: 1 ms OR 0 sec
+	162
+	
+	
+
