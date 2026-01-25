@@ -8,7 +8,7 @@ import src.tree.Node;
 
 public class LevelOrder {
 	
-	static void levelOrder(Node<Integer> root) {
+	public static void levelOrder(Node<Integer> root) {
 		
 		Queue<Node<Integer>> q = new LinkedList<>();
 		q.add(root);
