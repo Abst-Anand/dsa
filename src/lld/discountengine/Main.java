@@ -15,3 +15,25 @@ public class Main {
         System.out.println(netCheckoutAmount);
     }
 }
+
+// TODO
+/*
+*
+Caps
+
+“Max discount ₹200 — where does that logic go?”
+
+✔️ Inside the discount implementation.
+
+Eligibility
+
+“Discount only applies if cart > ₹1000?”
+
+✔️ Discount returns zero delta.
+
+Stacking rules
+
+“Some discounts don’t combine.”
+
+✔️ Discount engine / pipeline layer, not Cart.
+* */
