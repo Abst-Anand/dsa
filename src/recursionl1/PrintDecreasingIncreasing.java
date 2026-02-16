@@ -16,12 +16,12 @@ KNOWLEDGE SHARING SESSION (KT)
 * */
 public class PrintDecreasingIncreasing {
 
-    public static void printIncreasingDecreasing(int n){
+    public static void printDecreasingIncreasing(int n){
         if(n == 0){
             return;
         }
         System.out.println(n);
-        printIncreasingDecreasing(n - 1);
+        printDecreasingIncreasing(n - 1);
         System.out.println(n);
 
 //        PrintDecreasing.printDecreasing(n);
@@ -30,6 +30,6 @@ public class PrintDecreasingIncreasing {
 
     public static void main(String[] args) {
         int n = 5;
-        printIncreasingDecreasing(n);
+        printDecreasingIncreasing(n);
     }
 }
