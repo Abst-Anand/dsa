@@ -1,14 +1,14 @@
 package src.practice.tree;
 
-import src.tree.Node;
+import src.tree.GenericNode;
 import src.tree.traversal.LevelOrder;
 
 public class MirrorTree {
 
-    public static void mirrorTree(Node<Integer> root){
+    public static void mirrorTree(GenericNode<Integer> root){
         if(root == null) return;
 
-        Node<Integer> temp = root.left;
+        GenericNode<Integer> temp = root.left;
         root.left = root.right;
         root.right = temp;
 
@@ -17,7 +17,7 @@ public class MirrorTree {
     }
 
     public static void main(String[] args) {
-        Node<Integer> root = new Node<>();
+        GenericNode<Integer> root = new GenericNode<>();
         root = root.getSampleIntegerTreeRoot();
 
         LevelOrder.levelOrder(root);

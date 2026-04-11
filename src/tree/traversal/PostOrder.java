@@ -2,16 +2,16 @@ package src.tree.traversal;
 
 import java.util.Stack;
 
-import src.tree.Node;
+import src.tree.GenericNode;
 
 // post order traversal both recursive and iterative
 public class PostOrder {
 	
-	static void iterative(Node<Integer> root) {
-		Stack<Node<Integer>> st = new Stack<>();
+	static void iterative(GenericNode<Integer> root) {
+		Stack<GenericNode<Integer>> st = new Stack<>();
 		st.add(root);
 		while(!st.isEmpty()) {
-			Node<Integer> curr = st.peek();
+			GenericNode<Integer> curr = st.peek();
 			if(curr.right != null)
 				st.add(curr.right);
 			if(curr.left != null)
@@ -23,7 +23,7 @@ public class PostOrder {
 		System.out.println(root.data);
 	}
 	
-	static void recursive(Node<Integer> root) {
+	static void recursive(GenericNode<Integer> root) {
 		if(root == null) return;
 		recursive(root.left);
 		recursive(root.right);
@@ -32,22 +32,22 @@ public class PostOrder {
 
 	public static void main(String[] args) {
 
-		Node<Integer> root = new Node<>(10);
-		Node<Integer> node1 = new Node<>(20);
-		Node<Integer> node2 = new Node<>(30);
-		Node<Integer> node3 = new Node<>(40);
-		Node<Integer> node4 = new Node<>(50);
-		Node<Integer> node5 = new Node<>(880);
-		Node<Integer> node6 = new Node<>(8);
+		GenericNode<Integer> root = new GenericNode<>(10);
+		GenericNode<Integer> genericNode1 = new GenericNode<>(20);
+		GenericNode<Integer> genericNode2 = new GenericNode<>(30);
+		GenericNode<Integer> genericNode3 = new GenericNode<>(40);
+		GenericNode<Integer> genericNode4 = new GenericNode<>(50);
+		GenericNode<Integer> genericNode5 = new GenericNode<>(880);
+		GenericNode<Integer> genericNode6 = new GenericNode<>(8);
 		
-		root.left = node1;
-		root.right = node2;
+		root.left = genericNode1;
+		root.right = genericNode2;
 		
-		node1.left = node3;
-		node1.right = node4;
+		genericNode1.left = genericNode3;
+		genericNode1.right = genericNode4;
 		
-		node2.left = node5;
-		node2.right = node6;
+		genericNode2.left = genericNode5;
+		genericNode2.right = genericNode6;
 		
 		iterative(root);
 		System.out.println();

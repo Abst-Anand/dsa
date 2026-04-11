@@ -1,10 +1,10 @@
 package src.practice.tree;
 
-import src.tree.Node;
+import src.tree.GenericNode;
 
 public class IdenticalTrees {
 
-    public static boolean isIdentical(Node<Integer> root1, Node<Integer> root2){
+    public static boolean isIdentical(GenericNode<Integer> root1, GenericNode<Integer> root2){
         if(root1 == null && root2 == null) return true;
         if(root1 == null && root2 != null) return false;
         if(root1 != null && root2 == null) return false;
@@ -18,8 +18,8 @@ public class IdenticalTrees {
     }
 
     public static void main(String[] args) {
-        Node<Integer> root1 = new Node<>();
-        Node<Integer> root2 = new Node<>();
+        GenericNode<Integer> root1 = new GenericNode<>();
+        GenericNode<Integer> root2 = new GenericNode<>();
 
         root1 = root1.getSampleIntegerTreeRoot();
         root2 = root2.getSampleIntegerTreeRoot();

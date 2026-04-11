@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import src.tree.Node;
+import src.tree.GenericNode;
 
 public class LevelOrder {
 	
-	public static void levelOrder(Node<Integer> root) {
+	public static void levelOrder(GenericNode<Integer> root) {
 		
-		Queue<Node<Integer>> q = new LinkedList<>();
+		Queue<GenericNode<Integer>> q = new LinkedList<>();
 		q.add(root);
 		
 		ArrayList<ArrayList<Integer>> levels = new ArrayList<>();
@@ -20,7 +20,7 @@ public class LevelOrder {
 			ArrayList<Integer> subList = new ArrayList<>();
 			
 			for(int i=0; i<numOfNodesPerLevel; i++) {
-				Node<Integer> curr = q.poll();
+				GenericNode<Integer> curr = q.poll();
 				if(curr.left != null) q.add(curr.left);
 				if(curr.right != null) q.add(curr.right);
 				subList.add(curr.data);
@@ -34,22 +34,22 @@ public class LevelOrder {
 	
 	public static void main(String[] args) {
 		
-		Node<Integer> root =  new Node<>(10);
-		Node<Integer> node1 =  new Node<>(45);
-		Node<Integer> node2 =  new Node<>(5);
-		Node<Integer> node3 =  new Node<>(180);
-		Node<Integer> node4 =  new Node<>(69);
-		Node<Integer> node5 =  new Node<>(7);
-		Node<Integer> node6 =  new Node<>(56);
+		GenericNode<Integer> root =  new GenericNode<>(10);
+		GenericNode<Integer> genericNode1 =  new GenericNode<>(45);
+		GenericNode<Integer> genericNode2 =  new GenericNode<>(5);
+		GenericNode<Integer> genericNode3 =  new GenericNode<>(180);
+		GenericNode<Integer> genericNode4 =  new GenericNode<>(69);
+		GenericNode<Integer> genericNode5 =  new GenericNode<>(7);
+		GenericNode<Integer> genericNode6 =  new GenericNode<>(56);
 		
-		root.left = node1;
-		root.right = node2;
+		root.left = genericNode1;
+		root.right = genericNode2;
 		
-		node1.left = node3;
-		node1.right = node5;
+		genericNode1.left = genericNode3;
+		genericNode1.right = genericNode5;
 		
-		node2.left = node4;
-		node3.right = node6;
+		genericNode2.left = genericNode4;
+		genericNode3.right = genericNode6;
 		
 		levelOrder(root);
 	}

@@ -2,7 +2,7 @@ package src.tree;
 
 public class DepthOfATree {
 
-    public static int findDepth(Node<Integer> root) {
+    public static int findDepth(GenericNode<Integer> root) {
         if(root == null) return 0;
 
         int leftDepth = findDepth(root.left);
@@ -11,7 +11,7 @@ public class DepthOfATree {
     }
 
     public static void main(String[] args) {
-        Node<Integer> root = new Node<>();
+        GenericNode<Integer> root = new GenericNode<>();
         root = root.getSampleIntegerTreeRoot();
 
         int heigth = DepthOfATree.findDepth(root);

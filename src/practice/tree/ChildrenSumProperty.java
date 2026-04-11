@@ -1,35 +1,35 @@
 package src.practice.tree;
 
-import src.tree.Node;
+import src.tree.GenericNode;
 
 public class ChildrenSumProperty {
 
-    public static boolean checkChildrenSumProperty(Node<Integer> node){
-        if(node == null) return true;
-        if(node.left == null && node.right == null) return true;
+    public static boolean checkChildrenSumProperty(GenericNode<Integer> genericNode){
+        if(genericNode == null) return true;
+        if(genericNode.left == null && genericNode.right == null) return true;
 
-        int leftValue = (node.left != null) ? node.left.data : 0;
-        int rightValue = (node.right != null) ? node.right.data : 0;
+        int leftValue = (genericNode.left != null) ? genericNode.left.data : 0;
+        int rightValue = (genericNode.right != null) ? genericNode.right.data : 0;
 
 
-        return (node.data == leftValue + rightValue) && checkChildrenSumProperty(node.left) && checkChildrenSumProperty(node.right);
+        return (genericNode.data == leftValue + rightValue) && checkChildrenSumProperty(genericNode.left) && checkChildrenSumProperty(genericNode.right);
     }
 
     public static void main(String[] args) {
-        Node<Integer> root = new Node<>(10);
-        Node<Integer> node2 = new Node<>(8);
-        Node<Integer> node3 = new Node<>(2);
-        Node<Integer> node4 = new Node<>(3);
-        Node<Integer> node5 = new Node<>(5);
-        Node<Integer> node6 = new Node<>(2);
+        GenericNode<Integer> root = new GenericNode<>(10);
+        GenericNode<Integer> genericNode2 = new GenericNode<>(8);
+        GenericNode<Integer> genericNode3 = new GenericNode<>(2);
+        GenericNode<Integer> genericNode4 = new GenericNode<>(3);
+        GenericNode<Integer> genericNode5 = new GenericNode<>(5);
+        GenericNode<Integer> genericNode6 = new GenericNode<>(2);
 
-        root.left = node2;
-        root.right = node3;
+        root.left = genericNode2;
+        root.right = genericNode3;
 
-        node2.left = node4;
-        node2.right = node5;
+        genericNode2.left = genericNode4;
+        genericNode2.right = genericNode5;
 
-        node3.left = node6;
+        genericNode3.left = genericNode6;
 
         boolean res = checkChildrenSumProperty(root);
         System.out.println(res);

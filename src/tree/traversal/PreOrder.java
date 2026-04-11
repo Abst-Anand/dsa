@@ -2,25 +2,25 @@ package src.tree.traversal;
 
 import java.util.Stack;
 
-import src.tree.Node;
+import src.tree.GenericNode;
 
 public class PreOrder {
 	
-	public static void recursive(Node<Integer> root) {
+	public static void recursive(GenericNode<Integer> root) {
 		if(root == null) return;
 		System.out.print(root.data + " ");
 		recursive(root.left);
 		recursive(root.right);
 	}
 	
-	public static void iterative(Node<Integer> root) {
+	public static void iterative(GenericNode<Integer> root) {
 		if(root == null) return;
-		Stack<Node<Integer>> st = new Stack<>();
+		Stack<GenericNode<Integer>> st = new Stack<>();
 		
 		st.add(root);
 		
 		while(!st.isEmpty()) {
-			Node<Integer> curr = st.pop();
+			GenericNode<Integer> curr = st.pop();
 			System.out.print(curr.data + " ");
 			if(curr.right != null) 
 				st.add(curr.right);
@@ -30,22 +30,22 @@ public class PreOrder {
 	}
 
 	public static void main(String[] args) {
-		Node<Integer> root =  new Node<>(10);
-		Node<Integer> node1 =  new Node<>(45);
-		Node<Integer> node2 =  new Node<>(5);
-		Node<Integer> node3 =  new Node<>(180);
-		Node<Integer> node4 =  new Node<>(69);
-		Node<Integer> node5 =  new Node<>(7);
-		Node<Integer> node6 =  new Node<>(56);
+		GenericNode<Integer> root =  new GenericNode<>(10);
+		GenericNode<Integer> genericNode1 =  new GenericNode<>(45);
+		GenericNode<Integer> genericNode2 =  new GenericNode<>(5);
+		GenericNode<Integer> genericNode3 =  new GenericNode<>(180);
+		GenericNode<Integer> genericNode4 =  new GenericNode<>(69);
+		GenericNode<Integer> genericNode5 =  new GenericNode<>(7);
+		GenericNode<Integer> genericNode6 =  new GenericNode<>(56);
 		
-		root.left = node1;
-		root.right = node2;
+		root.left = genericNode1;
+		root.right = genericNode2;
 		
-		node1.left = node3;
-		node1.right = node4;
+		genericNode1.left = genericNode3;
+		genericNode1.right = genericNode4;
 		
-		node2.left = node5;
-		node2.right = node6;
+		genericNode2.left = genericNode5;
+		genericNode2.right = genericNode6;
 		
 		recursive(root);
 		System.out.println();

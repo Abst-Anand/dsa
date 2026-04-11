@@ -1,10 +1,10 @@
 package src.practice.tree;
 
-import src.tree.Node;
+import src.tree.GenericNode;
 
 public class BalancedOrNot {
 
-    public static boolean isBalanced(Node<Integer> root){
+    public static boolean isBalanced(GenericNode<Integer> root){
         if(root == null) return true;
         int leftHeight = getHeight(root.left);
         int rightHeight = getHeight(root.right);
@@ -13,17 +13,17 @@ public class BalancedOrNot {
         return isBalanced(root.left) && isBalanced(root.right);
     }
 
-    public static int getHeight(Node<Integer> node){
-        if(node == null) return 0;
+    public static int getHeight(GenericNode<Integer> genericNode){
+        if(genericNode == null) return 0;
 
-        int leftHeight = getHeight(node.left);
-        int rightHeight = getHeight(node.right);
+        int leftHeight = getHeight(genericNode.left);
+        int rightHeight = getHeight(genericNode.right);
 
         return 1 + Math.max(leftHeight, rightHeight);
     }
 
     public static void main(String[] args) {
-        Node<Integer> root = new Node<>();
+        GenericNode<Integer> root = new GenericNode<>();
         root = root.getSampleIntegerTreeRoot();
         boolean res = isBalanced(root);
         System.out.println(res);

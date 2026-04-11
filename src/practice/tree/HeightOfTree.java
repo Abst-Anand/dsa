@@ -1,10 +1,10 @@
 package src.practice.tree;
 
-import src.tree.Node;
+import src.tree.GenericNode;
 
 public class HeightOfTree {
 
-    public static int getHeight(Node<Integer> root){
+    public static int getHeight(GenericNode<Integer> root){
         if(root == null) return 0;
 
         int leftHeight = getHeight(root.left);
@@ -14,7 +14,7 @@ public class HeightOfTree {
     }
 
     public static void main(String[] args) {
-        Node<Integer> root = new Node<>();
+        GenericNode<Integer> root = new GenericNode<>();
         root = root.getSampleIntegerTreeRoot();
 
         int ans = getHeight(root);
