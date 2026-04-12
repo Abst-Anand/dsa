@@ -78,30 +78,27 @@ public class BST {
         if(node == null) return null;
 
         if(node.data > target){
-            return remove(node.left, target);
+            node.left = remove(node.left, target);
         } else if (node.data < target){
-            return remove(node.right, target);
-        }
+            node.right = remove(node.right, target);
+        } else {
+            // check for number of children: 0 or 1 or 2
+            if(node.left != null && node.right != null){ // 2 children
+                int maxVal = max(node.left);
+                node.data = maxVal;
+                node.left = remove(node.left, maxVal);
+                return node;
 
-        // check for number of children: 0 or 1 or 2
-        if(node.left != null && node.right != null){ // 2 children
-            int maxVal = max(node.left);
-            node.data = maxVal;
-
-            // TODO remove max from left subtree
-            while (node.right != null){
-
+            } else if(node.left != null){ // 1 child (left child)
+                return node.left;
+            } else if(node.right != null){ // 1 child (right child
+                return node.right;
+            } else { // 0 children
+                return null;
             }
 
-
-        } else if(node.left != null){ // 1 child (left child)
-            return node.left;
-        } else if(node.right != null){ // 1 child (right child
-            return node.right;
-        } else { // 0 child
-            return null;
         }
-
+        return node;
     }
 
     public static void main(String[] args) {
@@ -110,17 +107,23 @@ public class BST {
 
         Node root = construct(arr, 0, arr.length-1);
 
-        //display(root);
+        display(root);
 
         System.out.println(size(root));
+        System.out.println("===========");
 
-        System.out.println(sum(root));
+//
+//        System.out.println(sum(root));
+//
+//        System.out.println(max(root));
+//
+//        System.out.println(min(root));
+//
+//        System.out.println(find(root, 89));
+        remove(root, 25);
+        display(root);
+        System.out.println(size(root));
 
-        System.out.println(max(root));
-
-        System.out.println(min(root));
-
-        System.out.println(find(root, 89));
 
     }
 }
