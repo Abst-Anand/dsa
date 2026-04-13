@@ -1,8 +1,7 @@
-package src.binarytreel1;
+package src.tree.binarytreel1;
 
 import src.tree.Node;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class NodeToRootPath {

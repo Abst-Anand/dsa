@@ -1,4 +1,4 @@
-package src.lld.decoratorPattern;
+package src.lld.patterns.decorator;
 
 public class DecoratorGunUp implements Decorator{
     Character ch;

@@ -1,4 +1,4 @@
-package src.binarytreel1;
+package src.tree.binarytreel1;
 
 import src.tree.Node;
 
