@@ -15,8 +15,8 @@ public class ConnectedComponents {
         visited[src] = true;
         comp.add(src);
         for(Edge edge : graph[src]){
-            if(!visited[edge.neighbor]){
-                getConnectedComponents(graph, edge.neighbor, visited, comp);
+            if(!visited[edge.nbr]){
+                getConnectedComponents(graph, edge.nbr, visited, comp);
             }
         }
     }
@@ -81,8 +81,8 @@ public class ConnectedComponents {
 
             // add neighbors who are not visited
             for(Edge e : graph[curr.vertex]){
-                if(visited[e.neighbor] == -1){
-                    queue.add(new Pair(e.neighbor, curr.psf + " " + e.neighbor, curr.level+1));
+                if(visited[e.nbr] == -1){
+                    queue.add(new Pair(e.nbr, curr.psf + " " + e.nbr, curr.level+1));
                 }
             }
         }

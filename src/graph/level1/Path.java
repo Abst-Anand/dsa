@@ -1,6 +1,7 @@
 package src.graph.level1;
 
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 public class Path {
 
@@ -13,8 +14,8 @@ public class Path {
         visited[src] = true;
         // check if there is a path from any neighbor of src to dest
         for(Edge edge : graph[src]){
-            if(!visited[edge.neighbor]){
-                boolean hasNeighborPath = hasPath(graph, edge.neighbor, dest, visited);
+            if(!visited[edge.nbr]){
+                boolean hasNeighborPath = hasPath(graph, edge.nbr, dest, visited);
                 if(hasNeighborPath)
                     return true;
             }
@@ -33,11 +34,67 @@ public class Path {
         visited[src] = true;
 
         for(Edge path : graph[src]){
-            if(!visited[path.neighbor]){
-                printAllPaths(graph, path.neighbor, dest, visited, (pathSoFar + path.neighbor + " -> "));
+            if(!visited[path.nbr]){
+                printAllPaths(graph, path.nbr, dest, visited, (pathSoFar + path.nbr + " -> "));
             }
         }
         visited[src] = false;
+    }
+
+    // Dijkstra Algo: find shortest path to all other nodes given a source node
+    static class Pair implements Comparable<Pair>{
+        int src;
+        int cost;
+        String psf;
+
+        public Pair(int src, int cost, String psf){
+            this.src = src;
+            this.cost = cost;
+            this.psf = psf;
+        }
+
+
+        @Override
+        public String toString() {
+            return "[" + src + " via " + psf + " @ " + cost + "]\n";
+        }
+
+
+        @Override
+        public int compareTo(Pair o) {
+            return this.cost - o.cost;
+        }
+    }
+    static ArrayList<Pair> dijkstraShortestPath(ArrayList<Edge>[] graph, int source, boolean[] visited){
+        PriorityQueue<Pair> pq = new PriorityQueue<>();
+        ArrayList<Pair> res = new ArrayList<>();
+
+        pq.add(new Pair(source, 0, "0"));
+
+        while (!pq.isEmpty()){
+            // remove
+            Pair curr = pq.poll();
+
+            // mark
+            if(visited[curr.src]){
+                continue;
+            }
+            visited[curr.src] = true;
+
+            // work
+            res.add(curr);
+
+            // add neighbors
+            for(Edge e : graph[curr.src]){
+                if(!visited[e.nbr]){
+                    pq.add(new Pair(e.nbr, curr.cost + e.cost, curr.psf + e.nbr + ""));
+                }
+            }
+
+        }
+
+        System.out.println(res);
+        return res;
     }
 
     public static void main(String[] args) {
@@ -88,7 +145,10 @@ public class Path {
         graph[6].add(e2);
 
         //System.out.println(hasPath(graph, 0, 3, visited));
-        printAllPaths(graph, 0 ,3, visited, "0 -> ");
+       // printAllPaths(graph, 0 ,3, visited, "0 -> ");
+
+        boolean[] vis = new boolean[vertices];
+        dijkstraShortestPath(graph, 0, vis);
 
     }
 }
