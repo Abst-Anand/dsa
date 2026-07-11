@@ -1,7 +1,9 @@
 package src.pepcoding.graph.level1;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 /*
 Q1 to Q3 => Path based
@@ -155,6 +157,131 @@ public class AllInOneGraph {
     }
 
 
+
+    // Q11: is graph cyclic
+
+    // Q12:
+
+    // Q13: Spread Infection, given a infected node at t=1, infection spreads to its neighbor each unit time, count infected nodes for a given time t
+    static class Pair{
+        int src;
+        int time;
+
+        public Pair(int scr, int time){
+            this.src = scr;
+            this.time = time;
+        }
+
+        @Override
+        public String toString() {
+            return "[" +
+                    "Node=" + src +
+                    ", time=" + time +
+                    ']';
+        }
+    }
+    static int countInfectedNodes(ArrayList<Edge>[] graph, int vertices, int src, int t){
+
+        Queue<Pair> queue = new LinkedList<>();
+        queue.add(new Pair(src, 1));
+
+        int[] visited = new int[vertices];
+        int count = 0;
+
+        while (!queue.isEmpty()){
+            Pair currNode = queue.poll();
+
+            if(visited[currNode.src] != 0){
+                continue;
+            }
+//            System.out.println(currNode);
+            visited[currNode.src] = currNode.time;
+
+            if(currNode.time > t){
+                break;
+            }
+
+            count++;
+
+            for(Edge e : graph[currNode.src]){
+                if(visited[e.nbr] == 0){
+                    queue.add(new Pair(e.nbr, currNode.time+1));
+                }
+            }
+
+        }
+
+        return count;
+    }
+
+    // Q 13.1: Rotting Oranges, given a mxn matrix with each cell having value from [0,1,2]
+    // 0 => empty cell, 1 => rotten orange, 2 => fresh orange
+    // find the minimum time it will take such that no fresh oranges are left
+    static class OrangeInfo{
+        int row;
+        int col;
+        int time;
+
+        public OrangeInfo(int row, int col, int time){
+            this.row = row;
+            this.col = col;
+            this.time = time;
+        }
+
+        @Override
+        public String toString() {
+            return "OrangeInfo{" +
+                    "row=" + row +
+                    ", col=" + col +
+                    ", time=" + time +
+                    '}';
+        }
+    }
+    static int rottingOranges(int[][] mat){
+        int m = mat.length;
+        int n = mat[0].length;
+
+        int totalOranges = 0;
+        int rottenOranges = 0;
+        Queue<OrangeInfo> queue = new LinkedList<>();
+        int[][] dir = {{-1,0}, {1,0}, {0,1}, {0,-1}};
+
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(mat[i][j] == 1 || mat[i][j] == 2)
+                    totalOranges++;
+                if(mat[i][j] == 2){
+                    queue.add(new OrangeInfo(i,j,0));
+                    rottenOranges++;
+                }
+            }
+        }
+
+        int minimumTimeToRot = 0;
+
+        while (!queue.isEmpty()){
+            OrangeInfo curr = queue.poll();
+
+            for(int[] d : dir){
+                int nextRow = curr.row + d[0];
+                int nextCol = curr.col + d[1];
+
+                if(nextRow<0 || nextRow >= m || nextCol<0 || nextCol >=n || mat[nextRow][nextCol] != 1){
+                    continue;
+                }
+                mat[nextRow][nextCol] = 2;
+                rottenOranges++;
+
+                OrangeInfo next = new OrangeInfo(nextRow, nextCol, curr.time+1);
+                queue.add(next);
+                minimumTimeToRot = Math.max(minimumTimeToRot, curr.time+1);
+            }
+        }
+
+        return (totalOranges == rottenOranges) ? minimumTimeToRot : -1;
+    }
+
+
     public static void main(String[] args) {
 
         // Q1
@@ -262,6 +389,15 @@ public class AllInOneGraph {
         }
         System.out.println(c7);
 
+//===========================================================================================================
+        System.out.println("+++Q13++++++++++++++++++++++");
+        int res13 = countInfectedNodes(graph, vert, 6, 7);
+        System.out.println(res13);
+//===========================================================================================================
+        System.out.println("+++Q13.1++++++++++++++++++++++");
+        int[][] mat13 = {{2,1,1}, {1,1,0}, {0,1,1}};
+        int res131 = rottingOranges(mat13);
+        System.out.println(res131);
 
     }
 }
