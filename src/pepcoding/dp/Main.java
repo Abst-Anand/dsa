@@ -269,6 +269,22 @@ public class Main {
 
 
 
+    // Q : Friends pairing problem
+    static void findAllPossiblePairings(String str, int idx, String ans){
+
+        if(idx == str.length()){
+            System.out.println(ans);
+            return;
+        }
+
+        char ch = str.charAt(idx);
+
+        findAllPossiblePairings(str, idx+1, ans + "");
+        findAllPossiblePairings(str, idx+1, ans + " " + ch);
+    }
+
+
+
     public static void main(String[] args) {
 //=========================================================================================
         System.out.println("+++Q1+++++++++++++++++");
@@ -337,5 +353,6 @@ public class Main {
         System.out.println(res8);
 //=========================================================================================
         System.out.println("+++Q9+++++++++++++++++");
+        findAllPossiblePairings("123", 0, "");
     }
 }
