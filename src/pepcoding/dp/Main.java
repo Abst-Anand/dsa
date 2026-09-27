@@ -87,6 +87,21 @@ public class Main {
 
     // Q3: Climb stairs with variable number of jumps, here we need to reach the top
     // given another arr which implies the number of jumps allowed from i-th step
+    static int findPathsVarJumps(int n, int[] jumps){
+        if(n==0){
+            return 1;
+        }
+        if(n < 0){
+            return 0;
+        }
+
+        int totalWays = 0;
+        for(int j=1; j<= jumps[n]; j++){
+            totalWays += findPathsVarJumps(n-j, jumps);
+        }
+
+        return totalWays;
+    }
     static int findPathsVariableJump(int n, int[] arr){
         int[] dp = new int[n+1]; // storage and meaning(each cell will contain number of ways to reach top from itself)
                                  // reaching the last cell has 1 way => start from end (top) // direction
@@ -107,7 +122,27 @@ public class Main {
     }
 
     // Q4: Climb stairs with variable jumps but findTargetSumSubsets the minimum number of jumps required to reach the top from ground
-    static int findPathWithMinimumJumps(int n, int[] arr){
+    static int findPathWithMinimumJumps(int idx, int[] jumps){
+        if(idx==jumps.length){
+            return 0;
+        }
+        if(idx > jumps.length){
+            return Integer.MAX_VALUE;
+        }
+
+        int minJumps = Integer.MAX_VALUE;
+
+        for(int j=1; j<= jumps[idx]; j++){
+            int minSoFar = findPathWithMinimumJumps(idx+j, jumps);
+
+            if(minSoFar != Integer.MAX_VALUE){ // if this path is not unreachable then check
+                minJumps = Math.min(minJumps, minSoFar+1);
+            }
+        }
+
+        return minJumps;
+    }
+    static int findPathWithMinimumJumpsTabularised(int n, int[] arr){
         // storage and meaning
         Integer[] dp = new Integer[n+1]; // each cell will contain number of jumps to reach the top (n) from itself
 
@@ -317,7 +352,9 @@ public class Main {
         int[] arr4 = {3, 2, 4, 2, 0, 2, 3, 1, 2, 2};
         int n4 = 10;
 
-        int res4 = findPathWithMinimumJumps(n4, arr4);
+        int res4 = findPathWithMinimumJumps(0, arr4);
+        System.out.println("Naive Solution: " + res4);
+        res4 = findPathWithMinimumJumpsTabularised(n4, arr4);
         System.out.println(res4);
 //=========================================================================================
         System.out.println("+++Q5+++++++++++++++++");

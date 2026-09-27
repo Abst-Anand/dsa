@@ -38,7 +38,7 @@ public class SubsequenceOfAString {
     }
 
     public static void main(String[] args) {
-        String str = "123";
+        String str = "aaa";
         ArrayList<String> res = getSubsequence(str);
         System.out.println(res);
         printSubsequence(str, "");
